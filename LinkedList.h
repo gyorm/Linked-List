@@ -36,6 +36,7 @@ bool LinkedList<T>::Add(T object){
     if(head == nullptr){
         head = newNode;
         tail = newNode;
+        //asd
     }
     else{
         tail->next = newNode;
