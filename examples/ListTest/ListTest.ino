@@ -7,6 +7,7 @@
 
 LinkedList<int> *list = new LinkedList<int>();
 Node<int> *curr = new Node<int>();
+int flag;
 
 void setup(){
     list->Add(1993);
@@ -15,6 +16,7 @@ void setup(){
     Serial.begin(115200);
     pinMode(LED_BUILTIN, OUTPUT);
     curr = list->head;
+    flag = 1;
 }
 
 void loop(){
@@ -28,4 +30,5 @@ void loop(){
     delay(100);
     digitalWrite(LED_BUILTIN, HIGH);
     delay(1000);
+    if(list->RemoveAt(3) == false) Serial.println("REMOVE ERROR");
 }

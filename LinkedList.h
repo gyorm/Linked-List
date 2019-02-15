@@ -78,7 +78,7 @@ Node<T> *LinkedList<T>::Get(int itemIndex){
 template <typename T>
 bool LinkedList<T>::RemoveAt(int itemIndex){
 
-    if(Count == 0) return false;
+    if(Count == 0 || itemIndex > Count - 1) return false;
 
     Node<T> *delNode;
 
@@ -89,7 +89,7 @@ bool LinkedList<T>::RemoveAt(int itemIndex){
         return true;
     }
     else{
-        Node<T> *prevNode = this.Get(itemIndex - 1);
+        Node<T> *prevNode = this->Get(itemIndex - 1);
         delNode = prevNode->next;
         prevNode->next = delNode->next;
         free(delNode);
