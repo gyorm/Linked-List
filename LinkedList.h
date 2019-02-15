@@ -1,7 +1,8 @@
-#ifndef _ARDUINO_H
-    #define _ARDUINO_H
+#ifndef ARDUINO_h
+    #define ARDUINO_h
     #include <Arduino.h>
-#endif
+#ifndef LINKEDLIST_h
+    #define LINKEDLIST_h
 
 //###########################################
 
@@ -119,3 +120,6 @@ bool LinkedList<T>::Clear(){
     }
     return true;
 }
+
+#endif
+#endif
