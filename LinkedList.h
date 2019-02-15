@@ -24,9 +24,11 @@ class LinkedList{
     int Count;
 
     LinkedList();
+    ~LinkedList();
     bool Add(T data);
     Node<T> *Get(int itemIndex);
     bool RemoveAt(int itemIndex);
+    bool Clear();
 };
 
 //###########################################
@@ -37,6 +39,14 @@ class LinkedList{
 
 template <typename T>
 LinkedList<T>::LinkedList(){
+    head = nullptr;
+    tail = nullptr;
+    Count = 0;
+}
+
+template <typename T>
+LinkedList<T>::~LinkedList(){
+    this->Clear();
     head = nullptr;
     tail = nullptr;
     Count = 0;
@@ -85,14 +95,27 @@ bool LinkedList<T>::RemoveAt(int itemIndex){
     if(itemIndex == 0){
         delNode = head;
         head = head->next;
-        free(delNode);
+        delete delNode;
         return true;
     }
     else{
         Node<T> *prevNode = this->Get(itemIndex - 1);
         delNode = prevNode->next;
         prevNode->next = delNode->next;
-        free(delNode);
+        delete delNode;
         return true;
     }
+}
+
+template <typename T>
+bool LinkedList<T>::Clear(){
+    Node<T> *currNode = head;ű
+    Node<T> *buffNode;
+
+    while(currNode != nullptr){
+        buffNode = currNode;
+        currNode = currNode->next;
+        delete buffNode;
+    }
+    return true;
 }
