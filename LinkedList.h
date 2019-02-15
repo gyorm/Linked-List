@@ -3,6 +3,12 @@
     #include <Arduino.h>
 #endif
 
+//###########################################
+
+//######## Declaration of LinkedList ########
+
+//################### .h ####################
+
 template <class T> 
 struct Node{
     T data;
@@ -27,7 +33,7 @@ class LinkedList{
 
 //######### Definiton of LinkedList #########
 
-//###########################################
+//################# .cpp ####################
 
 template <typename T>
 LinkedList<T>::LinkedList(){
@@ -59,7 +65,6 @@ Node<T> *LinkedList<T>::Get(int itemIndex){
     int currIndex = 0;
     Node<T> *currNode = head;
 
-    if(Count == 0) return nullptr;
     if(itemIndex <= Count - 1){
         while(currIndex != itemIndex){
             currIndex++;
@@ -72,5 +77,22 @@ Node<T> *LinkedList<T>::Get(int itemIndex){
 
 template <typename T>
 bool LinkedList<T>::RemoveAt(int itemIndex){
-    
+
+    if(Count == 0) return false;
+
+    Node<T> *delNode;
+
+    if(itemIndex == 0){
+        delNode = head;
+        head = head->next;
+        free(delNode);
+        return true;
+    }
+    else{
+        Node<T> *prevNode = this.Get(itemIndex - 1);
+        delNode = prevNode->next;
+        prevNode->next = delNode->next;
+        free(delNode);
+        return true;
+    }
 }
