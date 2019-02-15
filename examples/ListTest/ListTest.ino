@@ -18,7 +18,10 @@ void setup(){
 }
 
 void loop(){
-    Serial.println(curr->data, DEC);
+    Serial.print("\nCurr data: ");
+    Serial.print(curr->data, DEC);
+    Serial.print("\n0. Item: ");
+    Serial.print(list->Get(0)->data, DEC);
     if(curr->next == nullptr) curr = list->head;
     else curr = curr->next;
     digitalWrite(LED_BUILTIN, LOW);
