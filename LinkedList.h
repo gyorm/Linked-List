@@ -1,6 +1,7 @@
 #ifndef ARDUINO_h
     #define ARDUINO_h
     #include <Arduino.h>
+#endif
 #ifndef LINKEDLIST_h
     #define LINKEDLIST_h
 
@@ -10,11 +11,19 @@
 
 //################### .h ####################
 
-template <class T> 
-struct Node{
-    T data;
-    Node<T> *next;
+template <typename T> 
+class Node{
+    public:
+        Node();
+
+        T data;
+        Node<T> *next;
 };
+
+template <typename T>
+Node<T>::Node(){
+    next = nullptr;
+}
 
 template <typename T> 
 class LinkedList{
@@ -110,7 +119,7 @@ bool LinkedList<T>::RemoveAt(int itemIndex){
 
 template <typename T>
 bool LinkedList<T>::Clear(){
-    Node<T> *currNode = head;ű
+    Node<T> *currNode = head;
     Node<T> *buffNode;
 
     while(currNode != nullptr){
@@ -121,5 +130,4 @@ bool LinkedList<T>::Clear(){
     return true;
 }
 
-#endif
 #endif
