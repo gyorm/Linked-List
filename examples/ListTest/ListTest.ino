@@ -22,6 +22,7 @@ class City{
 
 City city1("Berlin", "GER", 3723914);
 City city2("Amsterdam", "NED", 1351587);
+City city3("Budapest", "HU", 2000000);
 
 LinkedList<City> *CityList = new LinkedList<City>();
 LinkedList<int> *IntList = new LinkedList<int>();
@@ -29,15 +30,14 @@ LinkedList<int> *IntList = new LinkedList<int>();
 Node<City> *curr = new Node<City>();
 Node<int> *intCurr = new Node<int>();
 
-//LinkedList<int> *list = new LinkedList<int>();
-//Node<int> *curr = new Node<int>();
-
 void setup(){
     CityList->Add(city1);
     CityList->Add(city2);
+    CityList->Add(city3);
 
     IntList->Add(10);
     IntList->Add(5);
+    IntList->Add(7);
 
     Serial.begin(115200);
     pinMode(LED_BUILTIN, OUTPUT);
@@ -54,9 +54,8 @@ void loop(){
     delay(100);
     Serial.print("\nIntList member: (List of integers) --> ");
     Serial.print(intCurr->data, DEC);
-    if(intCurr->next == nullptr) intCurr = IntList->head;
-    else intCurr = intCurr->next;
-    
+    if(intCurr->next != nullptr) intCurr = intCurr->next;
+    else intCurr = IntList->head;
     digitalWrite(LED_BUILTIN, HIGH);
     delay(1000);
 }
