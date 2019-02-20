@@ -36,7 +36,7 @@ class LinkedList{
     LinkedList();
     ~LinkedList();
     bool Add(T data);
-    Node<T> *Get(int itemIndex);
+    T *Get(int itemIndex);
     bool RemoveAt(int itemIndex);
     bool Clear();
 };
@@ -81,7 +81,7 @@ bool LinkedList<T>::Add(T object){
 }
 
 template <typename T>
-Node<T> *LinkedList<T>::Get(int itemIndex){
+T *LinkedList<T>::Get(int itemIndex){
     int currIndex = 0;
     Node<T> *currNode = head;
 
@@ -90,7 +90,7 @@ Node<T> *LinkedList<T>::Get(int itemIndex){
             currIndex++;
             currNode = currNode->next;
         }
-        return currNode;
+        return &currNode->data;
     }
     else return nullptr;
 }

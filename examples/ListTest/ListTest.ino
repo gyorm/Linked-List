@@ -50,12 +50,14 @@ void loop(){
     Serial.print(curr->data.c_name);
     if(curr->next != nullptr) curr = curr->next;
     else curr = CityList->head;
-    digitalWrite(LED_BUILTIN, LOW);
-    delay(100);
     Serial.print("\nIntList member: (List of integers) --> ");
     Serial.print(intCurr->data, DEC);
     if(intCurr->next != nullptr) intCurr = intCurr->next;
     else intCurr = IntList->head;
+    Serial.print("\nGet the third City name in the list --> ");
+    Serial.print(CityList->Get(2)->c_name);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(100);
     digitalWrite(LED_BUILTIN, HIGH);
     delay(1000);
 }
