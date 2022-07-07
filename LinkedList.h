@@ -127,6 +127,7 @@ bool LinkedList<T>::Clear(){
         currNode = currNode->next;
         delete buffNode;
     }
+    Count = 0;
     return true;
 }
 
